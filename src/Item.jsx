@@ -14,14 +14,13 @@ export const Item = ({
     onTagChange(id, newTags);
   };
 
-  const handleLink = () => {
-    const selectedItem = { id, title, link };
-    setSelectedItem(selectedItem);
+  const openInNewTab = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
     <div className="Item" style={{ marginBottom: "20px" }}>
-      <h3>{title}</h3>
+      <h3 onClick={() => openInNewTab(link)}>{title}</h3>
       <div className="Buttons">
         {[
           "Archive",
