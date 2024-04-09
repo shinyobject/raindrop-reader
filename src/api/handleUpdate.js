@@ -5,7 +5,6 @@ import { fetchItems } from "./fetchItems";
 const handleUpdate = async (items, setItems) => {
   // url of the update collection for raindrop.io api
   const accessToken = import.meta.env.VITE_RAINDROP_ACCESS_TOKEN;
-  console.log("accessToken", accessToken);
   const itemsToUpdate = items.filter((item) => item.isChanged);
   for (const item in itemsToUpdate) {
     const itemToUpdate = itemsToUpdate[item];

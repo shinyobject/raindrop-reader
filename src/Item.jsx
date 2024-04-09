@@ -23,7 +23,15 @@ export const Item = ({
     <div className="Item" style={{ marginBottom: "20px" }}>
       <h3>{title}</h3>
       <div className="Buttons">
-        {["Archive", "Newsletter", "Code", "Read Later", "CDK"].map((tag) => (
+        {[
+          "Archive",
+          "Newsletter",
+          "CDK",
+          "Code",
+          "Music",
+          "Read Later",
+          "Share",
+        ].map((tag) => (
           <ToggleButton
             key={tag}
             label={tag}
