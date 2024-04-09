@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Item } from "./Item";
 
-const ItemsList = ({ items, setItems }) => {
+const ItemsList = ({ items, setItems, setSelectedItem }) => {
   // Function to handle tag change
   const handleTagChange = (itemId, tags) => {
     // Here you would update the tags for the item in your state or backend
-    console.log(`Item ID, Tags`, itemId, tags);
 
     setItems((items) =>
       items.map((item) =>
@@ -22,6 +21,8 @@ const ItemsList = ({ items, setItems }) => {
           id={item._id}
           tags={item.tags}
           title={item.title}
+          link={item.link}
+          setSelectedItem={setSelectedItem}
           onTagChange={handleTagChange}
         />
       ))}
