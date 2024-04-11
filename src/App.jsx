@@ -5,7 +5,7 @@ import { handleUpdate } from "./api/handleUpdate";
 import "./App.css";
 
 const Loading = () => {
-  return <div className="Loading">Loading...</div>;
+  return <div className="Loading">Processing...</div>;
 };
 
 function App() {
