@@ -4,7 +4,7 @@ const ToggleButton = ({ isOn, label, onToggle }) => {
   // Styling for the button
   const toggleStyles = {
     border: `2px solid ${isOn ? "#FFF" : "#007BFF"}`,
-    backgroundColor: isOn ? "#007BFF" : "#FFF",
+    backgroundColor: isOn ? "#007BFF" : "#dbe9f7",
     color: isOn ? "#FFF" : "#007BFF",
   };
   return (

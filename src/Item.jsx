@@ -1,14 +1,7 @@
 import React from "react";
 import ToggleButton from "./ToggleButton";
 
-export const Item = ({
-  id,
-  link,
-  title,
-  tags,
-  onTagChange,
-  setSelectedItem,
-}) => {
+export const Item = ({ id, link, title, tags, onTagChange }) => {
   const handleToggle = (id, tag, isChecked) => {
     const newTags = isChecked ? [...tags, tag] : tags.filter((t) => t !== tag);
     onTagChange(id, newTags);

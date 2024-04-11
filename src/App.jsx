@@ -4,9 +4,13 @@ import { fetchItems } from "./api/fetchItems";
 import { handleUpdate } from "./api/handleUpdate";
 import "./App.css";
 
+const Loading = () => {
+  return <div className="Loading">Loading...</div>;
+};
+
 function App() {
   const [items, setItems] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function loadItems() {
@@ -19,21 +23,14 @@ function App() {
 
   return (
     <main>
-      {/* <section> */}
-
       <h1>
         <span>Inbox</span>
-        <button onClick={() => handleUpdate(items, setItems)}>Update</button>
+        <button onClick={() => handleUpdate(items, setItems, setIsLoading)}>
+          Update
+        </button>
       </h1>
-      <ItemsList
-        items={items}
-        setItems={setItems}
-        setSelectedItem={setSelectedItem}
-      />
-      {/* </section> */}
-      {/* <section>
-        <iframe src={selectedItem?.link} title={selectedItem?.title} />
-      </section> */}
+      {isLoading && <Loading />}
+      {!isLoading && <ItemsList items={items} setItems={setItems} />}
     </main>
   );
 }

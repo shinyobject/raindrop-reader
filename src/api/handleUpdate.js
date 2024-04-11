@@ -1,11 +1,10 @@
-import React from "react";
 import { ARCHIVE_COLLECTION_ID, NEWSLETTER_COLLECTION_ID } from "../constants";
 import { fetchItems } from "./fetchItems";
 
-const handleUpdate = async (items, setItems) => {
-  // url of the update collection for raindrop.io api
+const handleUpdate = async (items, setItems, setIsLoading) => {
   const accessToken = import.meta.env.VITE_RAINDROP_ACCESS_TOKEN;
   const itemsToUpdate = items.filter((item) => item.isChanged);
+  setIsLoading(true);
   for (const item in itemsToUpdate) {
     const itemToUpdate = itemsToUpdate[item];
     const url = `https://api.raindrop.io/rest/v1/raindrop/${itemToUpdate._id}`;
@@ -35,6 +34,7 @@ const handleUpdate = async (items, setItems) => {
   }
   const newItems = await fetchItems();
   setItems(newItems);
+  setIsLoading(false);
 };
 
 export { handleUpdate };

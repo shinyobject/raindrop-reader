@@ -2,9 +2,6 @@
   padding: 2rem;
 }
 
-main {
-}
-
 h1 {
   margin-top: 0;
   font-size: 1.5rem;
@@ -39,10 +36,33 @@ h1 {
 .ToggleButton {
   padding: 5px 10px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .Buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 5px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.Loading {
+  font-size: 3rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 1s infinite;
 }
