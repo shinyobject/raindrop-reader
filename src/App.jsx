@@ -4,13 +4,14 @@ import { fetchItems } from "./api/fetchItems";
 import { handleUpdate } from "./api/handleUpdate";
 import "./App.css";
 
-const Loading = () => {
-  return <div className="Loading">Processing...</div>;
+const Loading = ({ children }) => {
+  return <div className="Loading">{children}</div>;
 };
 
 function App() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [percentComplete, setPercentComplete] = useState(0);
 
   useEffect(() => {
     async function loadItems() {
@@ -25,11 +26,17 @@ function App() {
     <main>
       <h1>
         <span>Inbox</span>
-        <button onClick={() => handleUpdate(items, setItems, setIsLoading)}>
+        <button
+          onClick={() =>
+            handleUpdate(items, setItems, setIsLoading, setPercentComplete)
+          }
+        >
           Update
         </button>
       </h1>
-      {isLoading && <Loading />}
+      {isLoading && (
+        <Loading>Processing {parseInt(percentComplete * 10)}%</Loading>
+      )}
       {!isLoading && <ItemsList items={items} setItems={setItems} />}
     </main>
   );
