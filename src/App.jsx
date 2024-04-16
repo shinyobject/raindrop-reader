@@ -35,7 +35,7 @@ function App() {
         </button>
       </h1>
       {isLoading && (
-        <Loading>Processing {parseInt(percentComplete * 10)}%</Loading>
+        <Loading>Processing... {parseInt(percentComplete * 10)}%</Loading>
       )}
       {!isLoading && <ItemsList items={items} setItems={setItems} />}
     </main>
